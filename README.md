@@ -1,6 +1,7 @@
 # MyReads Project
 
-This is a practice project on React from the Udacity Nanodegree 
+This is a practice project on React from the Udacity Nanodegree  where you can categorize books on "shelves" of ["currently raeding", "want to read" or "read"].
+You can also search new books and add them to your shelves.
 
 ## TL;DR
 
@@ -31,6 +32,7 @@ To get started:
     │   └── arrow-drop-down.svg
     ├── index.css # Global styles. You probably won't need to change anything here.
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+    └── Search.js # A component that holds the search page
 ```
 
 ## Tasks
@@ -85,10 +87,10 @@ getAll()
 Method Signature:
 
 ```js
-update(book, shelf)
+update(id, shelf)
 ```
 
-* book: `<Object>` containing at minimum an `id` attribute
+* id: `<string>` containing the id of the book
 * shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
 * Returns a Promise which resolves to a JSON object containing the response data of the POST request
 
