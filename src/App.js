@@ -21,8 +21,24 @@ class BooksApp extends React.Component {
       }));
   }
 
+  handleChangeShelf(id, event) {
+    let newShelf = event.target.value;
+    let newBooks = [...this.state.books];
+
+    newBooks.forEach(book => {
+      if (book.id === id) {
+        book.shelf = newShelf;
+      }
+    })
+    
+    this.setState({
+      books: [...newBooks],
+    })
+
+  }
+
   render() {
-    // console.log(BooksAPI.getAll());
+
     return (
       <div className="app">
         {this.state.showSearchPage ? (
@@ -44,9 +60,20 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                  <BookShelf title="Currently Reading" books={ this.state.books.filter(book => book.shelf === "currentlyReading") } />
-                  <BookShelf title="Want to read" books={ this.state.books.filter(book => book.shelf === "wantToRead") } />
-                  <BookShelf title="Read" books={this.state.books.filter(book => book.shelf === "read")} />
+                  <BookShelf
+                    shelfTitle= "Currently Reading"
+                    books={this.state.books.filter(book => book.shelf === "currentlyReading")}
+                    chnageShelf={(id , event)=> this.handleChangeShelf(id , event)} />
+                  
+                  <BookShelf
+                    shelfTitle="Want to read"
+                    books={this.state.books.filter(book => book.shelf === "wantToRead")}
+                    chnageShelf={(id , event)=> this.handleChangeShelf(id , event)}/>
+                  
+                  <BookShelf
+                    shelfTitle="Read"
+                    books={this.state.books.filter(book => book.shelf === "read")}
+                    chnageShelf={(id , event)=> this.handleChangeShelf(id , event)} />
               </div>
             </div>
             <div className="open-search">

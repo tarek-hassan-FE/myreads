@@ -39,7 +39,7 @@ To get started:
     - currently reading
     - want to read
     - read
-- [ ] Allow users to move books between shelves
+- [x] Allow users to move books between shelves
 - [ ] Keeps information presist between page refreshes
 
 #### The serach page
