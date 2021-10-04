@@ -33,12 +33,12 @@ To get started:
 
 ## Tasks
 #### The main page
-- [ ] Show three categories (or "bookshelves")
+- [x] Show three categories (or "bookshelves")
     - currently reading
     - want to read
     - read
 - [ ] Allow users to move books between shelves
-- [ ] Keeps information presist between page []refreshes
+- [ ] Keeps information presist between page refreshes
 
 #### The serach page
 - [ ] Have a search input that lets users search for books
