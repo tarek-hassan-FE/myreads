@@ -4,7 +4,7 @@ class Book extends Component {
         render() { 
                 return <div className="book">
                 <div className="book-top">
-                  <div className="book-cover" style={this.props.style}></div>
+                  <div className="book-cover" style={{width: 140 , height: 200, backgroundImage: `url('${this.props.thumb}' )`}}></div>
                   <div className="book-shelf-changer">
                     <select>
                       <option value="move" disabled>Move to...</option>
@@ -16,7 +16,7 @@ class Book extends Component {
                   </div>
                 </div>
                         <div className="book-title">{this.props.title}</div>
-                        <div className="book-authors">{this.props.authors}</div>
+                        <div className="book-authors">{this.props.authors.join(", ")}</div>
                 </div>
                 ;
         }

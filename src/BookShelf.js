@@ -11,7 +11,7 @@ class BookShelf extends Component {
                   <ol className="books-grid">
                         {books.map(book => {
                                 return (<li key={book.id}>
-                                        <Book style={book.style}
+                                        <Book thumb={book.imageLinks.thumbnail}
                                                 title={book.title}
                                                 authors={book.authors}
                                         />
