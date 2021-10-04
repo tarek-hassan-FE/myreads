@@ -3,6 +3,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookShelf from './BookShelf'
 import Search from './Search'
+import { Switch , Route, Link } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
@@ -80,10 +81,10 @@ class BooksApp extends React.Component {
 
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-          <Search clicked={() => { this.setState({ showSearchPage: false }) }} />
-        ) : (
-          <div className="list-books">
+      <Switch>
+
+        <Route exact path="/">
+        <div className="list-books">
             <div className="list-books-title">
               <h1>MyReads</h1>
             </div>
@@ -105,11 +106,22 @@ class BooksApp extends React.Component {
                     chnageShelf={(id , event)=> this.handleChangeShelf(id , event)} />
               </div>
             </div>
-            <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+              <div className="open-search">
+                <Link to="/search">
+                  <button>Add a book</button>
+                </Link>
+              
             </div>
           </div>
-        )}
+        </Route>
+
+        <Route path="/search">
+          <Search clicked={() => { this.setState({ showSearchPage: false }) }} />
+        </Route>
+        
+      </Switch>
+      
+        
       </div>
     )
   }

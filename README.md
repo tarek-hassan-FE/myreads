@@ -53,8 +53,8 @@ To get started:
 - [ ] Selections made on the search page show up on the main page
 
 #### Routing
-- [ ] Main page links to search page
-- [ ] Search page links to main page
+- [x] Main page links to search page
+- [x] Search page links to main page
 
 #### Code functionality
 - [ ] Project code handles state management appropiately
