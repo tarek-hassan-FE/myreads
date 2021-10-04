@@ -7,14 +7,8 @@ import { Switch , Route, Link } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-    showSearchPage: false,
-    books: []
+    books: [],
+    matchedBooks: [],
   }
 
 
@@ -77,6 +71,27 @@ class BooksApp extends React.Component {
 
   }
 
+  /**
+  * @description Searched books by query text form the BooksAPI and sets them in the state matchedBooks to be represented
+  * @constructor
+  * @param {object} event - The search input field chanfed value event
+  */
+  queryBooks(event) {
+    if (event.target.value !== "")
+    {
+      BooksAPI.search(event.target.value)
+      .then(res => this.setState({
+        matchedBooks: res.length > 0 ? res : [],
+      }))
+    }
+    else {
+      this.setState({
+        matchedBooks: [],
+      })
+    }
+    
+  }
+
   render() {
 
     return (
@@ -84,11 +99,12 @@ class BooksApp extends React.Component {
       <Switch>
 
         <Route exact path="/">
-        <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-            </div>
+            <div className="list-books">
+                <div className="list-books-title">
+                  <h1>MyReads</h1>
+                </div>
             <div className="list-books-content">
+              
               <div>
                   <BookShelf
                     shelfTitle= "Currently Reading"
@@ -105,18 +121,22 @@ class BooksApp extends React.Component {
                     books={this.state.books.filter(book => book.shelf === "read")}
                     chnageShelf={(id , event)=> this.handleChangeShelf(id , event)} />
               </div>
+              
             </div>
-              <div className="open-search">
+              
+            <div className="open-search">
                 <Link to="/search">
                   <button>Add a book</button>
                 </Link>
-              
             </div>
+            
           </div>
         </Route>
 
         <Route path="/search">
-          <Search clicked={() => { this.setState({ showSearchPage: false }) }} />
+            <Search
+              queryBooks={(event) => this.queryBooks(event)}
+              matchedBooks={this.state.matchedBooks} />
         </Route>
         
       </Switch>

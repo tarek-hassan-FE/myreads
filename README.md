@@ -45,7 +45,7 @@ To get started:
 - [x] Keeps information presist between page refreshes
 
 #### The serach page
-- [ ] Have a search input that lets users search for books
+- [x] Have a search input that lets users search for books
 - [ ] Search results allow a user to categorize a book as
     - currently reading
     - want to read
