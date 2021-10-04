@@ -32,7 +32,8 @@ To get started:
     │   └── arrow-drop-down.svg
     ├── index.css # Global styles. You probably won't need to change anything here.
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
-    └── Search.js # A component that holds the search page
+    ├── Search.js # A component that holds the search page
+    └── Rate.js # A component that holds the rating 
 ```
 
 ## Tasks
@@ -61,6 +62,9 @@ To get started:
 - [x] Code runs without errors
 - [x] Code is free of warnings that resulted from not following the best practices listed in the documentation
 
+
+## Extra Work
+- [x] Show rating for the books
 
 
 ## Backend Server

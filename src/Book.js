@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
+import Rate from './Rate';
 class Book extends Component {
         render() {
-                const {id, shelf, thumb, title, authors, onShelfChanged } = this.props;
+                const {id, shelf, thumb, title, authors, onShelfChanged, rate, ratersCount } = this.props;
                 return <div className="book">
                 <div className="book-top">
                   <div className="book-cover" style={{width: 140 , height: 200, backgroundImage: `url('${thumb}' )`}}></div>
@@ -15,9 +15,13 @@ class Book extends Component {
                       <option value="none">None</option>
                     </select>
                   </div>
-                </div>
+                  </div>
                         <div className="book-title">{title}</div>
                         <div className="book-authors">{authors.join(", ")}</div>
+                        <div className="book-rate-container">
+                          <div className="book-rate"> <Rate value ={rate}/> </div>
+                          <div className="book-raters-counter">{ratersCount ? "("+ ratersCount + ")" : ""}</div>
+                        </div>
                 </div>
                 ;
         }

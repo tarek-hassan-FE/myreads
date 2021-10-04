@@ -194,6 +194,33 @@ button:active {
     cursor: pointer;
 }
 
+.book-rate-container {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.rate-circles-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rate-circle {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+}
+
+.rate-circle-grey {
+    background-color: #dedede;
+}
+
+.rate-circle-gold {
+    background-color: #d39b00;
+}
+
 
 /* book cover */
 

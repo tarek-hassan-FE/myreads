@@ -38,8 +38,10 @@ class Search extends Component {
                                                 thumb={book.imageLinks ? book.imageLinks.thumbnail: ""}
                                                 title={book.title}
                                                 authors={book.authors ? book.authors : [""]}
-                                                  shelf={this.checkShelf(books, book.id)}
-                                                  onShelfChanged={(id , event) => chnageShelf(id , event)}
+                                                shelf={this.checkShelf(books, book.id)}
+                                                rate={book.averageRating}
+                                                ratersCount={book.ratingsCount}
+                                                onShelfChanged={(id , event) => chnageShelf(id , event)}
                                         />
                                         </li>);
                                 }): "No Books Found"
