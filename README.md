@@ -46,20 +46,20 @@ To get started:
 
 #### The serach page
 - [x] Have a search input that lets users search for books
-- [ ] Search results allow a user to categorize a book as
+- [x] Search results allow a user to categorize a book as
     - currently reading
     - want to read
     - read
-- [ ] Selections made on the search page show up on the main page
+- [x] Selections made on the search page show up on the main page
 
 #### Routing
 - [x] Main page links to search page
 - [x] Search page links to main page
 
 #### Code functionality
-- [ ] Project code handles state management appropiately
-- [ ] Code runs without errors
-- [ ] Code is free of warnings that resulted from not following the best practices listed in the documentation
+- [x] Project code handles state management appropiately
+- [x] Code runs without errors
+- [x] Code is free of warnings that resulted from not following the best practices listed in the documentation
 
 
 

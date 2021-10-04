@@ -4,7 +4,8 @@ import Book from './Book';
 class Search extends Component {
         
         render() {
-                const { queryBooks, matchedBooks } = this.props;
+                const { queryBooks, matchedBooks, chnageShelf } = this.props;
+
                 return <div className="search-books">
                 <div className="search-books-bar">
                         <Link to="/">
@@ -26,7 +27,8 @@ class Search extends Component {
                                                 thumb={book.imageLinks ? book.imageLinks.thumbnail: ""}
                                                 title={book.title}
                                                 authors={book.authors ? book.authors : [""]}
-                                                shelf= {book.shelf}
+                                                  shelf={book.shelf}
+                                                  onShelfChanged={(id , event) => chnageShelf(id , event)}
                                         />
                                         </li>);
                                 }): "No Books Found"

@@ -7,7 +7,7 @@ class Book extends Component {
                 <div className="book-top">
                   <div className="book-cover" style={{width: 140 , height: 200, backgroundImage: `url('${thumb}' )`}}></div>
                   <div className="book-shelf-changer">
-                    <select onChange={(event) => onShelfChanged(id,event)} value={shelf} >
+                    <select onChange={(event) => onShelfChanged(id,event)} value={shelf ? shelf : "none"} >
                       <option value="move" disabled >Move to...</option>
                       <option value="currentlyReading">Currently Reading</option>
                       <option value="wantToRead">Want to Read</option>

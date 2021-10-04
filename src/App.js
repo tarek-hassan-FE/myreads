@@ -23,6 +23,18 @@ class BooksApp extends React.Component {
       }));
   }
 
+  /**
+  * @description Gets all books from the API after the component updates from changes in the search
+  *  and put them in the state books
+  * @constructor
+  */
+  componentDidUpdate() {
+    BooksAPI.getAll()
+      .then(allBooks => this.setState({
+        books: allBooks
+      }));
+  }
+
 
   /**
   * @description Updates the book shelf in the database 
@@ -136,7 +148,8 @@ class BooksApp extends React.Component {
         <Route path="/search">
             <Search
               queryBooks={(event) => this.queryBooks(event)}
-              matchedBooks={this.state.matchedBooks} />
+              matchedBooks={this.state.matchedBooks}
+              chnageShelf = {(id , event) => this.handleChangeShelf(id , event) } />
         </Route>
         
       </Switch>
