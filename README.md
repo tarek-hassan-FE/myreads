@@ -40,7 +40,7 @@ To get started:
     - want to read
     - read
 - [x] Allow users to move books between shelves
-- [ ] Keeps information presist between page refreshes
+- [x] Keeps information presist between page refreshes
 
 #### The serach page
 - [ ] Have a search input that lets users search for books

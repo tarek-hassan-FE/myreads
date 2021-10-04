@@ -14,6 +14,12 @@ class BooksApp extends React.Component {
     showSearchPage: false,
     books: []
   }
+
+
+  /**
+  * @description Gets all books from the API after the component rendered and put them in the state
+  * @constructor
+  */
   componentDidMount() {
     BooksAPI.getAll()
       .then(allBooks => this.setState({
@@ -21,8 +27,25 @@ class BooksApp extends React.Component {
       }));
   }
 
-  handleChangeShelf(id, event) {
-    let newShelf = event.target.value;
+
+  /**
+  * @description Updates the book shelf in the database 
+  * @constructor
+  * @param {string} id - The id of the book
+  * @param {string} shelf - The clicked book new shelf
+  */
+  updateShelvesInDB(id, shelf) {
+    BooksAPI.update(id, shelf);
+  }
+  
+  /**
+  * @description Updates the book shelf in the state
+  * @constructor
+  * @param {string} id - The id of the book
+  * @param {string} newShelf - The new shelf of the book 
+  */
+  updateShelfInState(id, newShelf) {
+  
     let newBooks = [...this.state.books];
 
     newBooks.forEach(book => {
@@ -30,10 +53,25 @@ class BooksApp extends React.Component {
         book.shelf = newShelf;
       }
     })
-    
+
     this.setState({
       books: [...newBooks],
     })
+  }
+  
+  /**
+  * @description Handles the changing of a specific book shelf
+  * @constructor
+  * @param {string} id - The id of the book
+  * @param {object} event - The clicked book event
+  */
+  handleChangeShelf(id, event) {
+
+    let newShelf = event.target.value;
+
+    this.updateShelfInState(id, newShelf);
+    
+    this.updateShelvesInDB(id, newShelf);
 
   }
 
